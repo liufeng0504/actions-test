@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-debug:
+  setup-dev:
     runs-on: macos-latest
     steps:
       - name: checkout
@@ -21,7 +21,14 @@ jobs:
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
           version: latest
-        
+   
+      - name: setup carthage
+        run: brew install carthage
+
+  build-debug: 
+    runs-on: macos-latest
+    needs: [setup-dev]
+    steps:
       - name: test
         run: |
           xcodebuild --help
