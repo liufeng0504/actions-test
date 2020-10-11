@@ -40,13 +40,13 @@ jobs:
       - name: install pods
         run: pod install --repo-update
       
-      - name: install carthage
-        run: carthage update --platform iOS
+#       - name: install carthage
+#         run: carthage update --platform iOS
 
-      - name: test
-        run: |
-          xcodebuild --help
-          pod --version
-          carthage version
+      - name: build debug
+        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -configuration Debug
+      
+      - name: build release
+        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -configuration Release
 
 
