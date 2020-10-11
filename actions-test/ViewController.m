@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+#ifdef DEBUG
+    NSLog(@"%@", a);
+#endif
 }
 
 @end
