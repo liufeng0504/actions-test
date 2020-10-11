@@ -44,9 +44,9 @@ jobs:
 #         run: carthage update --platform iOS
 
       - name: build debug
-        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -configuration Debug
+        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -allowProvisioningUpdates -configuration Debug
       
       - name: build release
-        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -configuration Release
+        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -allowProvisioningUpdates -configuration Release
 
 
