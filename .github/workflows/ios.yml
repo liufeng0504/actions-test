@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  setup-dev:
+  build-debug:
     runs-on: macos-latest
     steps:
       - name: checkout
@@ -31,10 +31,6 @@ jobs:
       - name: setup carthage
         run: brew install carthage
   
-  install:
-    runs-on: macos-latest
-    needs: [setup-dev]
-    steps:
       - name: install npm-check-updates
         run: npm install -g npm-check-updates
         
@@ -47,10 +43,6 @@ jobs:
       - name: install carthage
         run: carthage update --platform iOS
 
-  build-debug: 
-    runs-on: macos-latest
-    needs: [setup-dev, install]
-    steps:
       - name: test
         run: |
           xcodebuild --help
