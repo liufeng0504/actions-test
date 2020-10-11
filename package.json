@@ -1,0 +1,11 @@
+{
+    "name": "fht-react-native-ref",
+    "description": "引用烽火台移动端react-native项目",
+    "license": "ISC",
+    "scripts": {
+        "update": "ncu --upgrade && npm install"
+    },
+    "dependencies": {
+        "@fht360/fht-react-native": "^1.0.8"
+    }
+}
