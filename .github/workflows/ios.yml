@@ -34,13 +34,26 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '11.5'
-	  apple-id: 'fht360@fht360,com'
-	  apple-id-password: ${{secrets.APPLE_ID_PASSWORD}}
+          apple-id: 'fht360@fht360,com'
+          apple-id-password: ${{secrets.APPLE_ID_PASSWORD}}
         
       - name: setup cocoapods
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
           version: latest
+
+      - name: Cache cocoapods
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-cocoa-pods
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.cocoapods
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
    
       - name: setup carthage
         run: brew install carthage
