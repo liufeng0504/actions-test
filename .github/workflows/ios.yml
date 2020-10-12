@@ -75,9 +75,9 @@ jobs:
           GITHUB_ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: build debug
-        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -allowProvisioningUpdates -configuration Debug
+        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -allowProvisioningUpdates -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug
       
       - name: build release
-        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -allowProvisioningUpdates -configuration Release
+        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -allowProvisioningUpdates -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Release
 
 
