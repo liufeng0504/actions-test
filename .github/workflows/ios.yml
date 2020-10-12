@@ -6,6 +6,11 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - run: fastlane -v
+    
   build-debug:
     runs-on: macos-latest
     steps:
