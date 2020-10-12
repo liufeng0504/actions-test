@@ -42,6 +42,10 @@ jobs:
       
       - name: install carthage
         run: carthage update --platform iOS
+        env: 
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
 
       - name: test
         run: |
