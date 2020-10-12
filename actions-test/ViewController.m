@@ -17,9 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-#ifdef RELEASE
-    NSString *a = 1;
-#endif
 }
 
 @end
