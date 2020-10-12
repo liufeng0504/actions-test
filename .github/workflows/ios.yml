@@ -46,11 +46,10 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GITHUB_ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-
-      - name: test
-        run: |
-          xcodebuild --help
-          pod --version
-          carthage version
+      - name: build debug
+        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -allowProvisioningUpdates -configuration Debug
+      
+      - name: build release
+        run: xcodebuild build -workspace actions-test.xcworkspace -scheme actions-test -allowProvisioningUpdates -configuration Release
 
 
